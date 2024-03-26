@@ -89,5 +89,6 @@ $route['api/update_product/(:any)'] = 'api/update_product/$1';
 $route['api/delete_product/(:any)'] = 'api/delete_product/$1';
 
 
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
