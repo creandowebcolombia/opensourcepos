@@ -82,7 +82,7 @@ $route['reports/specific_customer'] = 'reports/specific_customer_input';
 $route['reports/specific_employee'] = 'reports/specific_employee_input';
 $route['reports/specific_discount'] = 'reports/specific_discount_input';
 $route['reports/specific_supplier'] = 'reports/specific_supplier_input';
-
+//RUTAS DE LA API
 $route['api/create_product'] = 'api/create_product';
 $route['api/get_product/(:any)'] = 'api/get_product/$1';
 $route['api/update_product/(:any)'] = 'api/update_product/$1';
