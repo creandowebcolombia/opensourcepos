@@ -83,5 +83,11 @@ $route['reports/specific_employee'] = 'reports/specific_employee_input';
 $route['reports/specific_discount'] = 'reports/specific_discount_input';
 $route['reports/specific_supplier'] = 'reports/specific_supplier_input';
 
+$route['api/create_product'] = 'api/create_product';
+$route['api/get_product/(:any)'] = 'api/get_product/$1';
+$route['api/update_product/(:any)'] = 'api/update_product/$1';
+$route['api/delete_product/(:any)'] = 'api/delete_product/$1';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
