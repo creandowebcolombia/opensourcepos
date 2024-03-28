@@ -11,6 +11,13 @@ class Api extends CI_Controller {
     }
 
     public function create_product() {
+        // Verifica si el usuario está autenticado (ejemplo)
+        if (!$this->is_authenticated()) {
+            // Si el usuario no está autenticado, devolver un mensaje de error
+            $this->output->set_output(json_encode(array('success' => false, 'message' => 'Unauthorized')));
+            return;
+        }
+
         // Obtener los datos del producto enviados en la solicitud POST
         $data = $this->input->post();
 
@@ -32,6 +39,13 @@ class Api extends CI_Controller {
     }
 
     public function get_product($id) {
+        // Verifica si el usuario está autenticado (ejemplo)
+        if (!$this->is_authenticated()) {
+            // Si el usuario no está autenticado, devolver un mensaje de error
+            $this->output->set_output(json_encode(array('success' => false, 'message' => 'Unauthorized')));
+            return;
+        }
+
         // Obtener el producto por su ID
         $product = $this->product_model->get_product_by_id($id);
 
@@ -47,6 +61,13 @@ class Api extends CI_Controller {
     }
 
     public function update_product($id) {
+        // Verifica si el usuario está autenticado (ejemplo)
+        if (!$this->is_authenticated()) {
+            // Si el usuario no está autenticado, devolver un mensaje de error
+            $this->output->set_output(json_encode(array('success' => false, 'message' => 'Unauthorized')));
+            return;
+        }
+
         // Obtener los datos del producto enviados en la solicitud POST
         $data = $this->input->post();
 
@@ -68,6 +89,13 @@ class Api extends CI_Controller {
     }
 
     public function delete_product($id) {
+        // Verifica si el usuario está autenticado (ejemplo)
+        if (!$this->is_authenticated()) {
+            // Si el usuario no está autenticado, devolver un mensaje de error
+            $this->output->set_output(json_encode(array('success' => false, 'message' => 'Unauthorized')));
+            return;
+        }
+
         // Eliminar el producto de la base de datos
         $result = $this->product_model->delete_product($id);
 
@@ -81,5 +109,12 @@ class Api extends CI_Controller {
             $response = array('success' => false, 'message' => 'Failed to delete product');
             $this->output->set_output(json_encode($response));
         }
+    }
+
+    private function is_authenticated() {
+        // Verifica si el usuario está autenticado (implementación específica)
+        // Aquí deberías validar las credenciales del usuario y devolver true o false
+        // Esto es solo un ejemplo, debes implementar la lógica de autenticación real
+        return isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
     }
 }
